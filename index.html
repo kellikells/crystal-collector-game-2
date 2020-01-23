@@ -9,14 +9,13 @@
 
     <!-- reset css -->
     <!--check href for reset.css file is correct-->
-    <pnk rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
 
-        <!-- jquery script -->
-        <script src="https://cdnjs.cloudflare.com/ajax/pbs/jquery/3.2.1/jquery.min.js"></script>
-
-        <!--my pnks-->
-        <pnk rel="stylesheet" type="text/css" href="assets/css/style.css">
-            <script type="text/javascript" src="assets/javascript/crystal.js"></script>
+    <!-- jquery script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--my links-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="assets/javascript/crystal.js"></script>
 
 </head>
 
@@ -48,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col-6">
-                Your score:
+                Your score: <span id="user-current-total"></span>
             </div>
             <div class="col-6">
                 Target score:
@@ -56,24 +55,27 @@
         </div>
         <div class="row">
             <div class="col-3">
+                    <button type="button" class="bttn" id="c-one" value="num1" ></button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="bttn" id="c-two" value="num2" ></button>
 
             </div>
             <div class="col-3">
+                <button type="button" class="bttn" id="c-three" value="num3"></button>
 
             </div>
             <div class="col-3">
-
-            </div>
-            <div class="col-3">
+                <button type="button" class="bttn" id="c-four" value="num4"></button>
 
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                Total Wins:
+                Total Wins: <span id="win"></span>
             </div>
             <div class="col-6">
-                Total Losses:
+                Total Losses: <span id="lost"></span>
             </div>
         </div>
     </div>
