@@ -11,8 +11,8 @@ $(document).ready(function () {
     var targetGoal = assignGoalValue();
     //-------------generating targetGoal-------------------
     function assignGoalValue() {
-        x = Math.floor(Math.random() * 101 + 19);
-        return x;
+        targetGoal = Math.floor(Math.random() * 101 + 19);
+        return targetGoal;
     }
 
     //=============== FUNCTION 2=========================
@@ -20,6 +20,7 @@ $(document).ready(function () {
     var crystalValuesArray = [];
     //-------generating an array of crystal values---------
     function pickFourNumbersForCrystals() {
+        crystalValuesArray = [];
         for (var i = 0; i < 4; i++) {
             var aNumberInTheArray = Math.floor(Math.random() * 11 + 1);
             crystalValuesArray.push(aNumberInTheArray);
@@ -32,39 +33,40 @@ $(document).ready(function () {
             $("#c-two").val(crystalValuesArray[1]);
             $("#c-three").val(crystalValuesArray[2]);
             $("#c-four").val(crystalValuesArray[3]);
-      }  }
+        }
+    }
     //============== END OF FUNCTION 2===============================
 
 
     // ++++++++++++++START THE GAME++++++++++++++++++
-// --------run: function 1 & function 2 -----------------
+    // --------run: function 1 & function 2 -----------------
     assignGoalValue();
+    $("#target-score").text(targetGoal);
     pickFourNumbersForCrystals();
 
     $(".bttn").on("click", function () {
         //grabs the value of "this" button and stores it in the variable crystalValue, as an integer
-        var crystalValue = parseInt($(this).value);
-       
-        //THIS RETURNS NAN !!!!!!!!!!!! something is wrong !!!!!!!!!!!!!!!!!!
-        console.log(crystalValue);
-  
+        var crystalValue = parseInt($(this).val());
+
         //now adds the value to the users current total:
         userCurrentTotal += crystalValue;
-
+        $("#user-current-total").text(userCurrentTotal);
 
         if (userCurrentTotal === targetGoal) {
             wins++;
             $("#win").text(wins);
-            userCurrentTotal=0;
+            userCurrentTotal = 0;
             $("#user-current-total").text(" ");
             assignGoalValue();
+            $("#target-score").text(targetGoal);
             pickFourNumbersForCrystals();
         } else if (userCurrentTotal > targetGoal) {
             losses++;
             $("#lost").text(losses);
-            userCurrentTotal=0;
+            userCurrentTotal = 0;
             $("#user-current-total").text(" ");
             assignGoalValue();
+            $("#target-score").text(targetGoal);
             pickFourNumbersForCrystals();
         }  //there is no ELSE because the only other option is to keep playing
 
